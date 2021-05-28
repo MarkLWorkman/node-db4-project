@@ -1,21 +1,24 @@
+// Update with your config settings.
+
 const sharedConfig = {
   client: "sqlite3",
-  migrations: { directory: "./migrations" },
-  seeds: { directory: "./seeds" },
   useNullAsDefault: true,
+  migrations: {
+    directory: "./data/migrations",
+  },
+  seeds: {
+    directory: "./data/seeds",
+  },
   pool: {
-    afterCreate: (conn, done) => conn.run("PRAGMA foreign_keys = on", done),
+    afterCreate: (conn, done) => {
+      conn.run("PRAGMA foreign_keys = ON", done);
+    },
   },
 };
+
 module.exports = {
   development: {
     ...sharedConfig,
-    connection: { filename: ".data/cook_book.db3" },
-    seeds: { directory: ".data/seeds" },
+    connection: { filename: "./data/recipes.db3" },
   },
-  testing: {
-    ...sharedConfig,
-    connection: { filename: "./data/cook_book.test.db3" },
-  },
-  production: {},
 };

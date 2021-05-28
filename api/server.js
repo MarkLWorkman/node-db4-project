@@ -1,14 +1,16 @@
 const express = require("express");
-const recipeRouter = require("./recipe/recipe-router");
-
 const server = express();
 
+const RecipesRouter = require("./recipes/recipe-router");
+
 server.use(express.json());
+server.use("/api/recipes", RecipesRouter);
 
-server.use("*", (req, res) => {
-  res.json({ api: "up" });
+server.use((err, req, res, next) => {
+  res.status(500).json({
+    message: err.message,
+    stack: err.stack,
+  });
 });
-
-server.use("/api/recipes", recipeRouter);
 
 module.exports = server;
