@@ -1,9 +1,21 @@
 {
-  "name": "node-db4-project",
+  "name": "db4-project",
   "version": "1.0.0",
   "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/node-db4-project.git"
-  }
+  },
+  "dependencies": {
+    "knex": "^0.95.6"
+  },
+  "description": "- [x] Fork and clone the repository.\r - [x] Implement your project in a `firstname-lastname` branch.\r - [x] Create a pull request of `firstname-lastname` against your `main` branch.\r - [x] Open the assignment in Canvas and submit your pull request.",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/node-db4-project/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/node-db4-project#readme",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
